@@ -1,9 +1,19 @@
 const express = require ('express');
 const router = express.Router();
-router.get ('/',)
-app.get('/posts',(req,res)=> {
+const Post = require ('../models/Post');
+
+router.get('/',(req,res)=> {
 
 res.send ("Posts message");
 });
 
-module.exports = router;
+
+router.post('/',( req, res) => {
+
+console.log(req.body);
+
+
+});
+
+
+module.exports = router; 
