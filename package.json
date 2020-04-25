@@ -18,9 +18,15 @@
   "homepage": "https://github.com/RodrigoMelo10/CA2Web#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
+    "ejs": "^3.1.2",
     "express": "^4.17.1",
+    "heroku": "^7.39.5",
+    "html": "^1.0.0",
+    "jquery": "^3.5.0",
     "mongoose": "^5.9.10",
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.3",
+    "path": "^0.12.7"
   }
 }

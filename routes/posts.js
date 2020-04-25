@@ -3,13 +3,16 @@ const router = express.Router();
 const Post = require ('../models/Post');
 
 //get back all the posts
-router.get('/',async (req,res)=> {
-try{
-     const posts = await Post.find();
-     res.json(posts);
-}catch(err){
-    res.json({message:err});   
-}
+router.get('/', function(req, res) {
+  Post.find({}, function (err, posts) {
+    if (err) {
+      res.status(400).json(err); 
+    } 
+    console.log(posts)
+    res.render('index', {     
+        data: posts,
+    });
+  }); 
 });
 
 //sending information to the database

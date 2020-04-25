@@ -2,22 +2,14 @@ const mongoose = require("mongoose");
 
 const PostSchema = mongoose.Schema({
 
-title:{ 
-    
-    type:String,
-    required:true
-},
-
-description:{
-    type: String,
-    required :true
-},
-
-date:{
-    type: Date,
-    default: Date.now
-}
-
+    section: {  type: String,
+        enum: ['DRINKS' ,'ELECTRONICS','HIGIENE', 'SWEETS','FOOD','BOOK','CLEANING']
+    }, 
+    title: String,
+    date: String
 });
+
+
+
 
 module.exports = mongoose.model('Posts',PostSchema)
