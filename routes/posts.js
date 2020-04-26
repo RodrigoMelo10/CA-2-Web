@@ -1,3 +1,5 @@
+ // the reference of this code is from https://www.youtube.com/watch?v=vjf774RKrLc,
+
 const express = require ('express');
 const router = express.Router();
 const Post = require ('../models/Post');
