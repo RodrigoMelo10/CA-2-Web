@@ -1,3 +1,5 @@
+// the reference of this code is from https://www.youtube.com/watch?v=vjf774RKrLc,
+
 const express = require('express');
 var Post = require('./models/Post');
 const html = require("html")
