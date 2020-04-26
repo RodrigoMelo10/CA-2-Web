@@ -11,7 +11,7 @@ require('dotenv/config');
 
 app.use(express.static('public'));
 
-
+var port = (process.env.PORT || 3000);
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -66,4 +66,6 @@ mongoose.connect(process.env.DB_CONNECTION,
 );
 
 //Listening to the server
-app.listen(3000);
+app.listen(port, function (err) {
+    console.log("Listening on Port: " + port)
+});
