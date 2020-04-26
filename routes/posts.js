@@ -41,6 +41,8 @@ post.save()
       res.json({ message: err})
   }
   });
+
+  
 //Deleting a Post
 router.delete('/:postId',async(req,res)=>{
     try{
