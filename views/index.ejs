@@ -13,7 +13,7 @@
   <title>IWA Demo App</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="public/bootstrap.min.css" rel="stylesheet">
+  <link href="../public/bootstrap.min.css" rel="stylesheet">
   <link href="public/styles.css" rel="stylesheet"  type="text/css"/> 
 </head>
 
@@ -60,29 +60,38 @@
                     <th colspan="3">Choose your product!</th>
                 </tr>
                 <tr>
-                    <th>Select</th>
+                    <th>Type</th>
                     <th>Item</th>
                     <th>Price</th>
+                    <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <div class="col-lg-8 text-center order-3">
+            <tbody class="table">
                 <%
                      data.forEach(function (item){ %>
                     
                         <tr id="<%= item._id %>">
-                            <td value="<%= item.title %>"> 
-                                <%= item.title %> 
+                           <td value="<%= item.date %>">
+                                <%= item.section %>
                             </td>
-                            <td value="<%= item._id %>">
-                               <%= item._id %>
+                            <td value="<%= item.title %>">
+                               <%= item.title %> 
                             </td>
                             <td value="<%= item.date %>">
                                 <%= item.date %>
                             </td>
+                            <form enctype="application/json" action="/delete" method="post">
+                            <td id="" value="<%= item.id %>"> 
+                              <input type="hidden" name="id" value="<%= item.id %>">
+                               <button type="submit" id="delete" class="btn btn-block btn-danger">Delete</button>
+                            </td>
+                           </form>
                         </tr>
                     <% 
                     }); %>
             </tbody>
+            </div>
         </table>
         <div class="col-lg-4 text-center order-2">
             <form enctype="application/json" action="/" method="post">
@@ -105,8 +114,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-             <button id="delete" class="btn btn-block btn-danger">Delete</button>
-                    <p class="text-muted">To delete an entree, click the required row first</p>
 			</div>
     </div>
   </div>

@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
     if (err) {
       res.status(400).json(err); 
     } 
-    console.log(posts)
     res.render('index', {     
         data: posts,
     });
@@ -17,7 +16,25 @@ router.get('/', function(req, res) {
 
 //sending information to the database
 router.post('/',( req, res) => {
+   var sec = "";
+    switch(req.body.sec_n){
+        case '0':
+            sec = "DRINKS";
+        case '1':
+            sec = "HIGIENE";
+        case '2':
+            sec = "ELECTRONICS";
+        case '3':
+            sec = "SWEET";
+        case '4':
+            sec = "FOOD";
+        case '5':
+            sec = "BOOK";
+        case '6':
+            sec = "CLEANING";
+    }
    const post = new Post({
+      section: sec,
       ttitle: req.body.item,
       date: req.body.price
    })
@@ -42,16 +59,19 @@ post.save()
   }
   });
 
-  
+
 //Deleting a Post
-router.delete('/:postId',async(req,res)=>{
+router.post('/delete',async(req,res)=>{
+    console.log(req.body.id)
     try{
-     const removedPost= await Post.remove({_id: req.params.postId })
-      res.json(removedPost);
+     const removedPost= await Post.deleteOne({_id: req.body.id })
+      res.redirect('back');
     }catch (err){
         res.json({message: err});
     }
  });
+
+
     //Updating a post
     router.patch('/:postId', async (req,res)=>{
         try{
