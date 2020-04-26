@@ -18,9 +18,8 @@ router.get('/', function(req, res) {
 //sending information to the database
 router.post('/',( req, res) => {
    const post = new Post({
-      title: req.body.title,
-      description: req.body.description
-
+      ttitle: req.body.item,
+      date: req.body.price
    })
 
 post.save()

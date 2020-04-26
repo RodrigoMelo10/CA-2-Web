@@ -2,9 +2,9 @@
   "name": "ca2web",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": " nodemon app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -24,9 +24,9 @@
     "express": "^4.17.1",
     "heroku": "^7.39.5",
     "html": "^1.0.0",
-    "jquery": "^3.5.0",
     "mongoose": "^5.9.10",
     "nodemon": "^2.0.3",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
   }
 }

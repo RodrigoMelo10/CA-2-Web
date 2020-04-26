@@ -11,6 +11,7 @@ require('dotenv/config');
 
 app.use(express.static('public'));
 
+
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -38,6 +39,23 @@ app.get('/' , function(req, res) {
   }); 
 });
 
+app.post('/',( req, res) => {
+   const post = new Post({
+      title: req.body.item,
+      date: req.body.price
+
+   })
+post.save()
+//returning promise
+.then(data =>{
+    res.redirect('back'); //display on screen
+})
+.catch(err =>{
+    
+     res.json({message: err});
+});
+});
+ 
 
 
 //Connecting to DataBase
