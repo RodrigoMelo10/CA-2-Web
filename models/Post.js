@@ -1,3 +1,4 @@
+// the reference of this code is from https://www.youtube.com/watch?v=vjf774RKrLc
 const mongoose = require("mongoose");
 
 const PostSchema = mongoose.Schema({
